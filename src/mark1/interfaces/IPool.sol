@@ -18,6 +18,9 @@ interface IPool {
     function getAssets() external view returns (address[] memory);
 
     function getAmountOut(bytes calldata data) external view returns (uint256 finalAmountOut);
+
+    function getAmountIn(bytes calldata data) external view returns (uint256 finalAmountIn);
+    
     event Swap(
         address indexed recipient,
         address indexed tokenIn,

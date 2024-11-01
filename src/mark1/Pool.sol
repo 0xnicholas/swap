@@ -1,19 +1,19 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.28;
 
-import "../../lib/solmate/tokens/ERC20.sol";
-import "../../lib/solmate/utils/ReentrancyGuard.sol";
-import {Math} from "../../lib/solmate/utils/FixedPointMathLib.sol";
+import {ERC20} from "../../lib/solmate/tokens/ERC20.sol";
+import {ReentrancyGuard} from "../../lib/solmate/utils/ReentrancyGuard.sol";
+import {FixedPointMathLib as Math} from "../../lib/solmate/utils/FixedPointMathLib.sol";
 
-import "./interfaces/IPool.sol";
-import "./interfaces/IPoolFactory.sol";
-import "./interfaces/IDeployer.sol";
+import {IPool} from "./interfaces/IPool.sol";
+import {IPoolFactory} from "./interfaces/IPoolFactory.sol";
+import {IDeployer} from "./interfaces/IDeployer.sol";
 
 error ZeroAddress();
 error IdenticalAddress();
 error InvalidSwapFee();
 error InvalidAmounts();
-error InsufficientLiquidtyMinted();
+error InsufficientLiquidityMinted();
 error InvalidOutputToken();
 error InvalidInputToken();
 error PoolUninitialized();
@@ -74,7 +74,7 @@ contract Pool is IPool, ERC20, ReentrancyGuard {
         }
 
         poolFee = _deployer.poolFee();
-        poolFeeTo = _deployer.pooFeeTo();
+        poolFeeTo = _deployer.poolFeeTo();
         
         // IVault ERC-4626 ...
 
@@ -228,7 +228,7 @@ contract Pool is IPool, ERC20, ReentrancyGuard {
         _blockTimestampLast = blockTimestampLast;
     }
 
-    function _balance() internal view returns () {
+    function _balance() internal view returns (uint256 balance0, uint256 balance1) {
         //no vault
         balance0 = ERC20(token0).balanceOf(address(this));
         balance1 = ERC20(token1).balanceOf(address(this));
@@ -287,6 +287,7 @@ contract Pool is IPool, ERC20, ReentrancyGuard {
                 uint256 _poolFee = poolFee;
                 uint256 numerator = _totalSupply * (computed - _kLast) * _poolFee;
                 uint256 denominator = (MAX_FEE - _poolFee) * computed + _poolFee * _kLast;
+                uint256 liquidity = numerator / denominator;
 
                 if (liquidity != 0) {
                     _mint(poolFeeTo, liquidity);
@@ -318,7 +319,7 @@ contract Pool is IPool, ERC20, ReentrancyGuard {
         uint256 shares,
         address to
     ) internal {
-        ERC(token).transfer(address(this), to, shares);
+        ERC20(token).transfer(to, shares);
     }
 
     /* --- public view --- */

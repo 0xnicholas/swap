@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.28;
 
-import from "./abstract/PoolDeployer.sol";
-import from "Pool.sol";
-import from "../../interfaces/IPoolFactory.sol";
-import from "../../interfaces/IDeployer.sol";
+import {PoolDeployer} from "./abstract/PoolDeployer.sol";
+import {Pool} from "./Pool.sol";
+import {IPoolFactory} from "./interfaces/IPoolFactory.sol";
+import {IDeployer} from "./interfaces/IDeployer.sol";
 
 /// @notice Contract for deploying Exchange Constant Product Pool with configurations.
 contract PoolFactory is IPoolFactory, PoolDeployer {
@@ -91,7 +91,7 @@ contract PoolFactory is IPoolFactory, PoolDeployer {
                     PoolInfo memory poolInfo = poolInfos[poolNumber++];
                     poolInfo.tokenA = i;
                     poolInfo.tokenB = j;
-                    Pool pool = ConstantProductPool(pools[k]);
+                    Pool pool = Pool(pools[k]);
                     (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast) = pool.getReserves();
                     poolInfo.reserve0 = reserve0;
                     poolInfo.reserve1 = reserve1;
