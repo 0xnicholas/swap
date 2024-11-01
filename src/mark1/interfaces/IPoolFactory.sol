@@ -6,4 +6,5 @@ import "./IDeployer.sol";
 interface IPoolFactory {
 
     function getDeployData() external view returns (bytes memory, IDeployer);
+
 }
