@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.28;
+pragma solidity ^0.8.27;
 
 /// @title Callback for IUniswapV3PoolActions#mint
 /// @notice Any contract that calls IUniswapV3PoolActions#mint must implement this interface

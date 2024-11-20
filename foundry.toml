@@ -1,6 +1,7 @@
 [profile.default]
-solc-version = "0.8.28"
+solc = "0.8.27"
 src = "src"
+test = "test/forge"
 out = "out"
 libs = ["lib"]
 evm_version = "cancun"

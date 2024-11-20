@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.28;
+pragma solidity ^0.8.27;
 
 /// @title Permissioned pool actions
 /// @notice Contains pool methods that may only be called by the factory owner

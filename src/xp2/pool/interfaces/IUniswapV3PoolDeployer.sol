@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.28;
+pragma solidity ^0.8.27;
 
 /// @title An interface for a contract that is capable of deploying Uniswap V3 Pools
 /// @notice A contract that constructs a pool must implement this to pass arguments to the pool

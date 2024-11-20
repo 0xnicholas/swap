@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.28;
+pragma solidity ^0.8.27;
 
 /// @notice library of functions related to protocol fees
 library ProtocolFeeLibrary {

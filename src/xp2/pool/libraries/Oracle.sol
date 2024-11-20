@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: BUSL-1.1
-pragma solidity ^0.8.28;
+pragma solidity ^0.8.27;
 
 /// @title Oracle
 /// @notice Provides price and liquidity data useful for a wide variety of system designs

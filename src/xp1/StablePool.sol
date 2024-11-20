@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.28;
+pragma solidity ^0.8.27;
 
-import {ERC20} from "@solmate/tokens/ERC20.sol";
-import {ReentrancyGuard} from "@solmate/utils/ReentrancyGuard.sol";
-import {FixedPointMathLib as Math} from "@solmate/utils/FixedPointMathLib.sol";
+import {ERC20} from "../../lib/solmate/tokens/ERC20.sol";
+import {ReentrancyGuard} from "../../lib/solmate/utils/ReentrancyGuard.sol";
+import {FixedPointMathLib as Math} from "../../lib/solmate/utils/FixedPointMathLib.sol";
 
 import {IStablePool} from "./interfaces/IStablePool.sol";
 import {IStablePoolFactory} from "./interfaces/IStablePoolFactory.sol";

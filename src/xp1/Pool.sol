@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.28;
+pragma solidity ^0.8.27;
 
 import {ERC20} from "../../lib/solmate/tokens/ERC20.sol";
 import {ReentrancyGuard} from "../../lib/solmate/utils/ReentrancyGuard.sol";

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.28;
+pragma solidity ^0.8.27;
 
 /// @title BitMath
 /// @dev This library provides functionality for computing bit properties of an unsigned integer

@@ -14,4 +14,4 @@
 - `xpy`: 使用orderbook的swap (refer to dYdX)
 - `xpx`: intent-centric swap (refer to Cowswap & UniswapX)
 
-开发工具: foundry
+> 开发工具: foundry/hardhat
