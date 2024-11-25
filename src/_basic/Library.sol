@@ -14,7 +14,7 @@ library Library {
         address factoryAddress,
         address tokenA,
         address tokenB
-    ) public returns (uint256 reserveA, uint256 reserveB) {
+    ) public view returns (uint256 reserveA, uint256 reserveB) {
         (address token0, address token1) = sortTokens(tokenA, tokenB);
         (uint256 reserve0, uint256 reserve1, ) = Pair(
             pairFor(factoryAddress, token0, token1)
@@ -84,7 +84,7 @@ library Library {
         address factory,
         uint256 amountIn,
         address[] memory path
-    ) public returns (uint256[] memory) {
+    ) public view returns (uint256[] memory) {
         if (path.length < 2) revert InvalidPath();
         uint256[] memory amounts = new uint256[](path.length);
         amounts[0] = amountIn;
@@ -119,7 +119,7 @@ library Library {
         address factory,
         uint256 amountOut,
         address[] memory path
-    ) public returns (uint256[] memory) {
+    ) public view returns (uint256[] memory) {
         if (path.length < 2) revert InvalidPath();
         uint256[] memory amounts = new uint256[](path.length);
         amounts[amounts.length - 1] = amountOut;

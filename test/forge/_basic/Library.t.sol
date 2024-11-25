@@ -69,7 +69,7 @@ contract LibraryTest is Test {
         assertEq(reserve1, 0.8 ether);
     }
 
-    function testQuote() public {
+    function testQuote() public pure {
         uint256 amountOut = Library.quote(1 ether, 1 ether, 1 ether);
         assertEq(amountOut, 1 ether);
 
@@ -80,7 +80,7 @@ contract LibraryTest is Test {
         assertEq(amountOut, 2 ether);
     }
 
-    function testPairFor() public {
+    function testPairFor() public view {
         address pairAddress = Library.pairFor(
             address(factory),
             address(tokenA),
@@ -90,7 +90,7 @@ contract LibraryTest is Test {
         assertEq(pairAddress, factory.pairs(address(tokenA), address(tokenB)));
     }
 
-    function testPairForTokensSorting() public {
+    function testPairForTokensSorting() public view {
         address pairAddress = Library.pairFor(
             address(factory),
             address(tokenB),
@@ -100,7 +100,7 @@ contract LibraryTest is Test {
         assertEq(pairAddress, factory.pairs(address(tokenA), address(tokenB)));
     }
 
-    function testPairForNonexistentFactory() public {
+    function testPairForNonexistentFactory() public view {
         address pairAddress = Library.pairFor(
             address(0xaabbcc),
             address(tokenB),
@@ -110,7 +110,7 @@ contract LibraryTest is Test {
         assertEq(pairAddress, 0xfF9CA751A66BFE61e48636C6A7A61044534F7c6D);
     }
 
-    function testGetAmountOut() public {
+    function testGetAmountOut() public pure {
         uint256 amountOut = Library.getAmountOut(
             1000,
             1 ether,
@@ -174,7 +174,7 @@ contract LibraryTest is Test {
         Library.getAmountsOut(address(factory), 0.1 ether, path);
     }
 
-    function testGetAmountIn() public {
+    function testGetAmountIn() public pure {
         uint256 amountIn = Library.getAmountIn(
             1495,
             1 ether,
