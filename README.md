@@ -3,7 +3,7 @@
 
 - [`xp1`](src/xp1/): 经典constant-product及stable交换池swap实现. (refer to Sushiswap)
     - 模板化部署
-    - 去除了sushi的bento(可能会换成vault-evo)
+    - 去除了sushi的bento(可能会换成[vault-evo](https://github.com/0xnicholas/vault-evo))
 
 - [`xp2`](src/xp2/): 带有ticks&range的swap (refer to uniswap v3/v4)
     - 使用v4的Singleton模式取代Factory/Pool. (Factory模式代码保留-未测试)
@@ -19,6 +19,6 @@
 - [`xpy`](src/xpy/): 使用orderbook的swap, 链下匹配链上结算 (refer to dYdX)
 - [`xpx`](src/xpx/): intent-centric swap (refer to Cowswap & UniswapX)
 
-以及 [`_basic`](src/_basic/), v2基础.
+以及 [`_basic`](src/_basic/), swap基础; 相关计算示例[`swapmath.py`](_math/swapmath.py).
 
-> 开发工具: foundry/hardhat
+> 开发工具: foundry/hardhat(test), viem
